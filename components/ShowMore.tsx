@@ -20,7 +20,7 @@ export default function ShowMore({ pageNumber, isNext }: ShowMoreProps) {
 
 	return (
 		<div className="flex mt-10 w-full gap-5 justify-center text-center">
-			{!isNext && (
+			{isNext && (
 				<CustomButton
 					btnType="button"
 					title="Show More"
