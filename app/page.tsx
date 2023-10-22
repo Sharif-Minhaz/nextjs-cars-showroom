@@ -1,8 +1,13 @@
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
+import { CarSearchParamsProps } from "@/types";
 import { fetchCar } from "@/utils";
 
-export default async function Home({searchParams}) {
+interface SearchParams {
+	searchParams: CarSearchParamsProps
+}
+
+export default async function Home({ searchParams }: SearchParams) {
 	const allCars = await fetchCar({
 		manufacturer: searchParams.manufacturer || "",
 		limit: searchParams.limit || 10,

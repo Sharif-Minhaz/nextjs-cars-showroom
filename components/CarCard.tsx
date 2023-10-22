@@ -4,10 +4,16 @@ import { useState } from "react";
 import Image from "next/image";
 import { CardDetails, CustomButton } from ".";
 import { calculateCarRent, generateCarImageUrl } from "@/utils";
+import { CarProps } from "@/types";
 
-export default function CarCard({ car }) {
-    const [isOpen, setIsOpen] = useState(false);
+interface Car {
+    car: CarProps;
+}
+
+export default function CarCard({ car }: Car) {
 	const { city_mpg, year, make, model, transmission, drive } = car;
+
+    const [isOpen, setIsOpen] = useState(false);
 
 	const carRent = calculateCarRent(city_mpg, year);
 
